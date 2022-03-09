@@ -1,0 +1,15 @@
+version: '3.3'
+services:
+  postgres:
+    image: postgres:latest
+    container_name: test-pg
+    restart: always
+    ports:
+      - '5432:5432'
+    volumes:
+      - data:/var/lib/postgresql/data:rw
+    environment:
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+
+volumes:
+  data:
