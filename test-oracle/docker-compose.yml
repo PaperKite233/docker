@@ -1,0 +1,14 @@
+version: '3.3'
+services:
+  oracle-xe-11g:
+    image: oracleinanutshell/oracle-xe-11g:latest
+    container_name: test-oracle
+    restart: always
+    ports:
+      - '1521:1521'
+      # - '8080:8080' # for webui
+    volumes:
+      - data:/u01/app/oracle/
+
+volumes:
+  data:
