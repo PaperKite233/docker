@@ -8,9 +8,9 @@ services:
     ports:
       - '3306:3306'
     volumes:
-      - data:/var/lib/mysql:rw
-      - etc:/etc/mysql/conf.d:ro
-      - /etc/localtime:/etc/localtime:ro
+      - data:/var/lib/mysql
+      - etc:/etc/mysql/conf.d
+      - /etc/localtime:/etc/localtime
     environment:
       - MYSQL_USER=${MYSQL_USER}
       - MYSQL_PASSWORD=${MYSQL_PASSWORD}
