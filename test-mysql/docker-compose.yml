@@ -10,6 +10,7 @@ services:
     volumes:
       - data:/var/lib/mysql:rw
       - etc:/etc/mysql/conf.d:ro
+      - /etc/localtime:/etc/localtime:ro
     environment:
       - MYSQL_USER=${MYSQL_USER}
       - MYSQL_PASSWORD=${MYSQL_PASSWORD}
