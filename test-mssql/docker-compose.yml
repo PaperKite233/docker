@@ -1,0 +1,21 @@
+version: '3.3'
+services:
+    mssql:
+        image: mcr.microsoft.com/mssql/server:latest
+        container_name: test-mssql
+        restart: always
+        ports:
+            - '1433:1433'
+        volumes:
+            - data:/var/opt/mssql/data
+        # 使用 volumes 后需要指定 user 为 root
+        # https://github.com/microsoft/mssql-docker/issues/542
+        # https://github.com/microsoft/mssql-docker/issues/13
+        user: root
+        environment:
+            - ACCEPT_EULA=Y
+            - MSSQL_PID=Express
+            - SA_PASSWORD=${SA_PASSWORD}
+
+volumes:
+    data:
