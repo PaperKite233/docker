@@ -3,7 +3,7 @@ version: '3.3'
 services:
   mongo:
     # image: mongo:latest # MongoDB 5.0+ requires a CPU with AVX support
-    image: mongo:4.4.13
+    image: mongo:4.2
     container_name: test-mongo
     restart: always
     ports:
@@ -13,6 +13,9 @@ services:
     environment:
       - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
       - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
+    # https://docs.mongodb.com/manual/tutorial/convert-standalone-to-replica-set/
+    # 版本过高会有限制，BadValue: security.keyFile is required when authorization is enabled with replica sets
+    command: --replSet rs0
 
 volumes:
   data:
