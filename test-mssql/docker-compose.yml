@@ -14,8 +14,9 @@ services:
         # https://github.com/microsoft/mssql-docker/issues/13
         user: root
         environment:
+            - MSSQL_AGENT_ENABLED=true
             - ACCEPT_EULA=Y
-            - MSSQL_PID=Express
+            - MSSQL_PID=Standard
             - SA_PASSWORD=${SA_PASSWORD}
 
 volumes:
