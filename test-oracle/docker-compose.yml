@@ -2,7 +2,8 @@ version: '3.3'
 
 services:
   oracle-xe-11g:
-    image: oracleinanutshell/oracle-xe-11g:latest
+    # image: oracleinanutshell/oracle-xe-11g:latest
+    image: yuxialuo/oracle-xe-11g-r2-cdc-demo:v1.0
     container_name: test-oracle
     restart: always
     ports:
